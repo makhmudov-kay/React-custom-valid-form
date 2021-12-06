@@ -1,0 +1,107 @@
+h2 {
+    color: #756F86;
+    font-weight: 500;
+    margin-bottom: 7px;
+}
+.select-box {
+    display: flex;
+    // width: 400px;
+    max-width: 400px;
+    width: 100%;
+    flex-direction: column;
+    position: relative;
+}
+
+.select-box .options-container {
+    background: #fff;
+    color: #756F86;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 6px;
+    overflow: hidden;
+    order: 1;
+    border: 1px solid #DBE2EA;
+}
+
+.selected {
+    background: #fff;
+    border-radius: 6px;
+    margin-bottom: 4px;
+    color: #2C2738;
+    position: relative;
+    order: 0;
+    border: 1px solid #DBE2EA;
+}
+
+.selected:focus {
+    outline-color: #0880AE;
+}
+
+.selected span {
+    color: #7C9CBF;
+}
+
+.selected::after {
+    content: "";
+    background: url(../../../assets/img/Icon.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    height: 100%;
+    width: 30px;
+    right: 11px;
+    top: 11px;
+
+    transition: all 0.4s;
+}
+
+.select-box .options-container.active + .selected::after {
+    transform: rotateX(180deg);
+    top: -11px;
+}
+
+.select-box .options-container.active {
+    max-height: none;
+    opacity: 1;
+    /* overflow-y: scroll; */
+    position: absolute;
+    top: 60px;
+    z-index: 100;
+}
+
+.select-box .options-container::-webkit-scrollbar {
+    width: 3px;
+    background: #fff;
+    border-radius: 0 10px 10px 0;
+}
+
+.select-box .options-container::-webkit-scrollbar-thumb {
+    background: #EBF4F8;
+    border-radius: 0 10px 10px 0;
+}
+
+
+.select-box .option, .selected {
+    padding: 16px;
+    cursor: pointer;
+}
+
+.select-box .option:hover {
+    background: #EBF4F8;
+}
+
+.select-box .option:focus-visible {
+    background: #EBF4F8;
+    outline: none;
+}
+
+.select-box label {
+    cursor: pointer;
+}
+
+.select-box .option .radio {
+    display: none;
+}
